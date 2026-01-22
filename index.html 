@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Gold Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🪙 Live Gold Market</h1>
+    <p>Live rates • Tax • Prediction</p>
+</header>
+
+<main>
+
+    <!-- Live Gold Rate -->
+    <div class="card">
+        <h2>Live Gold Rate (INR / gram)</h2>
+        <p id="gold-rate" class="gold-text">Loading...</p>
+        <p id="gold-status"></p>
+        <p id="tax-info"></p>
+    </div>
+
+    <!-- Gold Rate Graph -->
+    <div class="card">
+        <h2>Gold Rate Trend</h2>
+        <canvas id="rateChart"></canvas>
+    </div>
+
+    <!-- Prediction Graph -->
+    <div class="card">
+        <h2>Prediction</h2>
+        <canvas id="predictChart"></canvas>
+    </div>
+
+</main>
+
+<footer>
+    <p>© Live Gold Tracker</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
