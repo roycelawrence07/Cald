@@ -1,0 +1,82 @@
+async function loadGold() {
+    // Fetch live gold price (USD / ounce)
+    const res = await fetch("https://api.metals.live/v1/spot");
+    const data = await res.json();
+    const goldUSD = data.find(i => i[0] === "gold")[1];
+
+    // Convert to INR / gram
+    const usdToInr = 83;
+    const gram = 31.1035;
+    const goldINR = (goldUSD * usdToInr) / gram;
+
+    document.getElementById("gold-rate").innerText =
+        `₹ ${goldINR.toFixed(2)}`;
+
+    // Tax info
+    document.getElementById("tax-info").innerText =
+        "GST on gold (India): 3%";
+
+    // Dummy previous values (for graph)
+    const prices = [
+        goldINR - 40,
+        goldINR - 20,
+        goldINR,
+        goldINR + 15,
+        goldINR + 30
+    ];
+
+    drawRateChart(prices);
+    drawPredictionChart(prices);
+}
+
+function drawRateChart(prices) {
+    const trendColor =
+        prices[4] > prices[3] ? "green" :
+        prices[4] < prices[3] ? "red" : "gold";
+
+    new Chart(document.getElementById("rateChart"), {
+        type: "line",
+        data: {
+            labels: ["Day 1","Day 2","Day 3","Day 4","Today"],
+            datasets: [{
+                data: prices,
+                borderColor: trendColor,
+                borderWidth: 3
+            }]
+        },
+        options: {
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { color: "gold" } },
+                y: { ticks: { color: "gold" } }
+            }
+        }
+    });
+}
+
+function drawPredictionChart(prices) {
+    const prediction = prices[4]; // same-level prediction
+    const color = "gold";
+
+    new Chart(document.getElementById("predictChart"), {
+        type: "line",
+        data: {
+            labels: ["Now","Future"],
+            datasets: [{
+                data: [prices[4], prediction],
+                borderColor: color,
+                borderDash: [5,5],
+                borderWidth: 3
+            }]
+        },
+        options: {
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { color: "gold" } },
+                y: { ticks: { color: "gold" } }
+            }
+        }
+    });
+}
+
+loadGold();
