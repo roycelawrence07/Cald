@@ -15,24 +15,30 @@
         <p>Live gold rate & currency ups and downs</p>
     </header>
 
-    <main>
-        <!-- Gold Section -->
-        <div class="card">
-            <h2>🪙 Gold Rate (India)</h2>
-            <p id="gold-rate">Loading...</p>
-            <p id="gold-change"></p>
-        </div>
+   <main>
 
-        <!-- Currency Section -->
-        <div class="card">
-            <h2>💱 Currency Rate</h2>
-            <p id="usd-rate">Loading...</p>
-            <p id="usd-change"></p>
-        </div>
+    <!-- Gold Rate Card -->
+    <div class="card">
+        <h2>🪙 Gold Rate</h2>
+        <p id="gold-rate" class="gold-rate"></p>
+        <p id="gold-change"></p>
+    </div>
 
-        <!-- Refresh Button -->
-        <button onclick="loadData()">🔄 Refresh</button>
-    </main>
+    <!-- Gold Calculator -->
+    <div class="card calculator">
+        <h2>🧮 Gold Price Calculator</h2>
+
+        <input type="number" id="weight" placeholder="Gold weight (grams)">
+        <input type="number" id="rate" placeholder="Rate per gram">
+        <input type="number" id="making" placeholder="Making charges (%)">
+        <input type="number" id="gst" placeholder="GST (%)">
+
+        <button onclick="calculateGold()">Calculate</button>
+
+        <p id="total"></p>
+    </div>
+
+</main>
 
     <footer>
         <p>© 2026 | Built by You 💙</p>
