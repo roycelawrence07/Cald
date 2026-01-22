@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gold & Currency Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>💰 Gold & Currency Tracker</h1>
+        <p>Live gold rate & currency ups and downs</p>
+    </header>
+
+    <main>
+        <!-- Gold Section -->
+        <div class="card">
+            <h2>🪙 Gold Rate (India)</h2>
+            <p id="gold-rate">Loading...</p>
+            <p id="gold-change"></p>
+        </div>
+
+        <!-- Currency Section -->
+        <div class="card">
+            <h2>💱 Currency Rate</h2>
+            <p id="usd-rate">Loading...</p>
+            <p id="usd-change"></p>
+        </div>
+
+        <!-- Refresh Button -->
+        <button onclick="loadData()">🔄 Refresh</button>
+    </main>
+
+    <footer>
+        <p>© 2026 | Built by You 💙</p>
+    </footer>
+
+    <!-- Link JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
